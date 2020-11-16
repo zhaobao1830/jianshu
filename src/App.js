@@ -1,10 +1,9 @@
-import './App.css';
+import React from "react";
+import Header from './common/header/index';
 
 function App() {
   return (
-    <div className="App">
-      5555
-    </div>
+    <Header/>
   );
 }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style';
 import App from './App';
 
 ReactDOM.render(
@@ -9,3 +8,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+// 开启热更新
+if (module.hot) {
+  module.hot.accept()
+}
