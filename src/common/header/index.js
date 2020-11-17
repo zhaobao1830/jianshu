@@ -4,13 +4,14 @@ import { CSSTransition } from "react-transition-group";
 import { connect } from 'react-redux';
 
 class Header extends Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
   }
   render() {
     return (
       <div className={HeaderCss.header}>
-        <a className={HeaderCss.logo}></a>
+        <a className={HeaderCss.logo}/>
         <div className={HeaderCss.nav}>
           <div className={HeaderCss.navItem}>首页</div>
           <div className={HeaderCss.navItem}>下载App</div>
@@ -20,7 +21,12 @@ class Header extends Component {
            timeout={200}
             >
               <div className={HeaderCss.inputDiv}>
-                <input className={HeaderCss.input} placeholder={'搜索'}/>
+                <input
+                  className={HeaderCss.input}
+                  placeholder={'搜索'}
+                  onFocus={this.props.handleInputFocus}
+                  onBlur={this.props.handleInputBlur}
+                />
               </div>
           </CSSTransition>
           <div className={HeaderCss.navItem}>登录</div>
@@ -34,7 +40,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.focused
+    focused: state.header.focused
   }
 }
 
