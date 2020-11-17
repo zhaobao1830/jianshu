@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import HeaderCss from "./header.module.css";
 import { CSSTransition } from "react-transition-group";
+import { connect } from 'react-redux';
 
 class Header extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Header extends Component {
           <div className={HeaderCss.navItem}>下载App</div>
 
          <CSSTransition
-           in={true}
+           in={this.props.focused}
            timeout={200}
             >
               <div className={HeaderCss.inputDiv}>
@@ -31,4 +32,27 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    focused: state.focused
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleInputFocus () {
+      const action = {
+        type: 'search_focus'
+      }
+      dispatch(action)
+    },
+    handleInputBlur () {
+      const action = {
+        type: 'search_blur'
+      }
+      dispatch(action)
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
