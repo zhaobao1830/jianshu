@@ -43,3 +43,26 @@
     border: 1px solid #dddddd;
     cursor: pointer;
 }
+
+.inputDiv{
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.input{
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    padding: 0 35px 0 20px;
+    box-sizing: border-box;
+    background-color: #eeeeee;
+    font-size: 14px;
+}
+.input::placeholder{
+    color: #999;
+}
