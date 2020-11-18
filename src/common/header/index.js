@@ -46,7 +46,12 @@ const mapStateToProps = (state) => {
     // focused: state.header.focused
 
     // reduce.js文件里使用immutable对state里的数据进行了封装
-    focused: state.header.get('focused')
+    // state是js对象，header是immutable对象
+    // 为了统一，引入redux-immutable插件，都变成immutable对象
+    // focused: state.header.get('focused')
+    focused: state.get('header').get('focused')
+    // 还有一种写法
+    // focused: state.getIn(['header'], ['focused'])
   }
 }
 
