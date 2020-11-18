@@ -2,6 +2,8 @@ import React from "react";
 import { Provider } from 'react-redux';
 import Header from './common/header/index';
 import store from "./store";
+import Home from "./pages/home";
+import Detail from "./pages/detail";
 import {
   BrowserRouter as Router,
   Route
@@ -12,8 +14,8 @@ function App() {
     <Provider store={store}>
       <Header/>
       <Router>
-        <Route exact path="/" render={() => <div>home</div>}/>
-        <Route exact path="/detail" render={() => <div>detail</div>}/>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/detail" component={Detail}/>
       </Router>
     </Provider>
   );
