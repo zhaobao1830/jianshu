@@ -41,7 +41,12 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.header.focused
+    // 因为总的reducer.js里使用了combineReducers，所以state里的focused就变成了state下header里的focused
+    // 使用react插件可以看
+    // focused: state.header.focused
+
+    // reduce.js文件里使用immutable对state里的数据进行了封装
+    focused: state.header.get('focused')
   }
 }
 
